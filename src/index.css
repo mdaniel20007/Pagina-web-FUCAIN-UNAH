@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #150A24;
+  --color-night-2: #1C0F30;
+  --color-night-3: #10071C;
+  --color-line: #2E1E47;
+  --color-line-strong: #4A3668;
+  --color-ink: #F4EEE6;
+  --color-muted: #C9BFD6;
+  --color-gold: #F2B33D;
+  --color-gold-soft: #FFD27A;
+  --color-paper: #F4EEE6;
+  --color-paper-line: #D8CFC2;
+  --color-rust: #7A3E00;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { @apply bg-night text-ink font-sans antialiased; }
+a { @apply text-gold transition-colors; }
+a:hover { @apply text-gold-soft; }
