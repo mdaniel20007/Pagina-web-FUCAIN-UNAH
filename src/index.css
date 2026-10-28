@@ -1,31 +1,11 @@
 @import "tailwindcss";
 
-@theme {
-  --color-night: #150A24;
-  --color-night-2: #1C0F30;
-  --color-night-3: #10071C;
-  --color-line: #2E1E47;
-  --color-line-strong: #4A3668;
-  --color-ink: #F4EEE6;
-  --color-muted: #C9BFD6;
-  --color-gold: #F2B33D;
-  --color-gold-soft: #FFD27A;
-  --color-paper: #F4EEE6;
-  --color-paper-line: #D8CFC2;
-  --color-rust: #7A3E00;
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --font-sans: "Instrument Sans", system-ui, sans-serif;
-}
-
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-@layer base {
-  body { @apply bg-night text-ink font-sans antialiased; }
-  a { @apply text-gold transition-colors; }
-  a:hover { @apply text-gold-soft; }
-}
 
-/* ───────── Diseño "FUCAIN Inicio" (tema claro) ───────── */
+/* ───────── Tema FUCAIN ───────── */
 @theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
   --color-fc-navy: #0B1631;
   --color-fc-cream: #FFF8EE;
   --color-fc-red: #C9391A;
@@ -43,6 +23,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 }
 
 @layer base {
+  body { margin: 0; background: #fff; color: var(--color-fc-navy); font-family: var(--font-hanken); -webkit-font-smoothing: antialiased; }
+  a { color: var(--color-fc-purple); text-decoration: none; }
+  :focus-visible { outline: 3px solid var(--color-fc-purple); outline-offset: 3px; border-radius: 8px; }
   .fc-page { font-family: var(--font-hanken); color: var(--color-fc-navy); background: #fff; }
   .fc-page a, .fc-page a:hover { color: inherit; transition: none; }
 }
@@ -71,6 +54,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 @keyframes fxKenBurnsA { from { transform: scale(1) translate(0,0) } to { transform: scale(1.14) translate(2%,-1.5%) } }
 @keyframes fxKenBurnsB { from { transform: scale(1) translate(0,0) } to { transform: scale(1.14) translate(-2%,-1.5%) } }
 @keyframes fxMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes fxColUp { from { transform: translateY(0) } to { transform: translateY(-50%) } }
+@keyframes fxColDown { from { transform: translateY(-50%) } to { transform: translateY(0) } }
 @keyframes fxBob { from { transform: translateY(0) } to { transform: translateY(-16px) } }
 @keyframes fxShadow { from { transform: scaleX(1); opacity: 1 } to { transform: scaleX(.82); opacity: .6 } }
 
@@ -86,5 +71,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 .fx-paused, .fx-paused * { animation-play-state: paused !important; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .fc-page *, .fc-page *::before, .fc-page *::after { animation: none !important; }
 }
