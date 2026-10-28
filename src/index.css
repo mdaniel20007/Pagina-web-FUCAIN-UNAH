@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+/* ───────── Tema FUCAIN ───────── */
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+  --color-fc-navy: #0B1631;
+  --color-fc-cream: #FFF8EE;
+  --color-fc-red: #C9391A;
+  --color-fc-coral: #E84E2B;
+  --color-fc-orange: #F5A12F;
+  --color-fc-yellow: #FBC102;
+  --color-fc-purple: #85328A;
+  --color-fc-teal: #12AC9C;
+  --color-fc-teal-dark: #0E8A7D;
+  --color-fc-sky: #7ECBE3;
+  --color-fc-green: #66B32F;
+  --color-fc-gray: #5E6474;
+  --font-hanken: "Hanken Grotesk", system-ui, sans-serif;
+  --breakpoint-wide: 1100px;
+}
+
+@layer base {
+  body { margin: 0; background: #fff; color: var(--color-fc-navy); font-family: var(--font-hanken); -webkit-font-smoothing: antialiased; }
+  a { color: var(--color-fc-purple); text-decoration: none; }
+  :focus-visible { outline: 3px solid var(--color-fc-purple); outline-offset: 3px; border-radius: 8px; }
+  .fc-page { font-family: var(--font-hanken); color: var(--color-fc-navy); background: #fff; }
+  .fc-page a, .fc-page a:hover { color: inherit; transition: none; }
+}
+.fc-display { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.01em; }
+.fc-ease { transition-timing-function: cubic-bezier(.23, 1, .32, 1); }
+.fc-btn-gold { background: linear-gradient(135deg, #FBC102, #F5A12F); }
+
+@keyframes fcDrift { 0% { transform: translate3d(0,0,0) rotate(0deg) } 100% { transform: translate3d(0,-24px,0) rotate(10deg) } }
+@keyframes fcFloat { 0% { transform: translate3d(0,0,0) rotate(0deg) } 100% { transform: translate3d(0,-18px,0) rotate(28deg) } }
+@keyframes cfFallV { 0% { transform: translate3d(0,-40px,0) } 25% { transform: translate3d(26px,27.5vh,0) } 50% { transform: translate3d(-22px,55vh,0) } 75% { transform: translate3d(24px,82.5vh,0) } 100% { transform: translate3d(0,110vh,0) } }
+@keyframes cfFallP { 0% { transform: translate3d(0,-40px,0) } 25% { transform: translate3d(26px,180px,0) } 50% { transform: translate3d(-22px,360px,0) } 75% { transform: translate3d(24px,540px,0) } 100% { transform: translate3d(0,720px,0) } }
+@keyframes cfFlipA { to { transform: rotate3d(1,.4,.2,360deg) } }
+@keyframes cfFlipB { to { transform: rotate3d(.3,1,.5,-360deg) } }
+@keyframes cfSpin { to { transform: rotate(360deg) } }
+@keyframes cfBurst {
+  0% { transform: translate3d(0,0,0) scale(.2) rotate(0deg); opacity: 0 }
+  6% { opacity: 1 }
+  70% { opacity: 1 }
+  100% { transform: translate3d(var(--dx),var(--dy),0) scale(1) rotate(var(--rr)); opacity: 0 }
+}
+@keyframes ppDrop { 0% { transform: translateY(-120px); opacity: 0 } 100% { transform: translateY(0); opacity: 1 } }
+@keyframes ppSwing { 0% { transform: rotate(calc(var(--t) - 1.2deg)) } 100% { transform: rotate(calc(var(--t) + 1.2deg)) } }
+@keyframes fxSpin { 0% { transform: rotate(0deg) scale(1) } 50% { transform: rotate(180deg) scale(1.12) } 100% { transform: rotate(360deg) scale(1) } }
+@keyframes fxShimmer { from { background-position: 0% 50% } to { background-position: 200% 50% } }
+@keyframes fxFillet { from { background-position: 0% 0 } to { background-position: -200% 0 } }
+@keyframes fxKenBurnsA { from { transform: scale(1) translate(0,0) } to { transform: scale(1.14) translate(2%,-1.5%) } }
+@keyframes fxKenBurnsB { from { transform: scale(1) translate(0,0) } to { transform: scale(1.14) translate(-2%,-1.5%) } }
+@keyframes fxMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes fxColUp { from { transform: translateY(0) } to { transform: translateY(-50%) } }
+@keyframes fxColDown { from { transform: translateY(-50%) } to { transform: translateY(0) } }
+@keyframes fxBob { from { transform: translateY(0) } to { transform: translateY(-16px) } }
+@keyframes fxShadow { from { transform: scaleX(1); opacity: 1 } to { transform: scaleX(.82); opacity: .6 } }
+
+.fx-spin { animation: fxSpin var(--dur, 40s) linear infinite; }
+.fx-spin-rev { animation-direction: reverse; }
+.fx-shimmer { animation: fxShimmer 5s linear infinite; }
+.fx-fillet { animation: fxFillet 9s linear infinite; }
+.fx-marquee { animation: fxMarquee 42s linear infinite; }
+.fx-bob { animation: fxBob 3.2s ease-in-out infinite alternate; }
+.fx-shadow { animation: fxShadow 3.2s ease-in-out infinite alternate; }
+
+/* Las animaciones fuera de pantalla se pausan */
+.fx-paused, .fx-paused * { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fc-page *, .fc-page *::before, .fc-page *::after { animation: none !important; }
+}
