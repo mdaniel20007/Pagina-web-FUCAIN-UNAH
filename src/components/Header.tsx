@@ -37,8 +37,8 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <motion.a whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }} href="/#cronogramas" className="rounded-full bg-gold px-[18px] py-2.5 text-sm font-semibold text-night hover:bg-gold-soft hover:text-night">
-          Cronograma general
+        <motion.a whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }} href="/#programacion" className="rounded-full bg-gold px-[18px] py-2.5 text-sm font-semibold text-night hover:bg-gold-soft hover:text-night">
+          Ver programación
         </motion.a>
       </div>
     </motion.header>

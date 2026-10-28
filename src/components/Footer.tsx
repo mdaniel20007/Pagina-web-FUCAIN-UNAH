@@ -16,8 +16,8 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-2 text-[15px]">
           <span className="text-xs uppercase tracking-[0.1em] text-muted">Navegación</span>
-          <Link to="/#evento">Evento</Link>
-          <Link to="/#cronogramas">Cronogramas</Link>
+          <Link to="/#programacion">Programación</Link>
+          <Link to="/#universidades">Participantes</Link>
           <Link to="/galeria">Galería</Link>
           <a href="#top">Volver arriba ↑</a>
         </div>

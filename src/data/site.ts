@@ -19,11 +19,9 @@ export const site = {
 }
 
 export const nav = [
-  { to: '/#evento', label: 'Evento' },
-  { to: '/#disciplinas', label: 'Disciplinas' },
-  { to: '/#cronogramas', label: 'Cronogramas' },
+  { to: '/#programacion', label: 'Programación' },
   { to: '/galeria', label: 'Galería' },
-  { to: '/#patrocinadores', label: 'Patrocinadores' },
+  { to: '/#universidades', label: 'Participantes' },
 ]
 
 export const disciplinas: Disciplina[] = Array.from({ length: 6 }, (_, i) => ({
